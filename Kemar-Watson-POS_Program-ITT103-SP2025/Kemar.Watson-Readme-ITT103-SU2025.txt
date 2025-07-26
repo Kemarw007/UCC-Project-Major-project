@@ -1,0 +1,164 @@
+# Hospital Management System 
+
+- **Program Name**: UCC Hospital Management System
+- **Authors**: Kemar Watson
+- **Date Created** : 07/14/2025
+- **Course**: ITT103
+- **Semester**: Summer 2025
+- **Lecturer**: Jonathan Johnson
+A comprehensive Python-based Hospital Management System that demonstrates object-oriented programming concepts, inheritance, exception handling, and modular code design.
+
+## Features
+
+###  Patient Management
+- Register new patients with name, age, and gender
+- Auto-generated unique patient IDs
+- View patient profiles and details
+- List all registered patients
+
+###  Doctor Management
+- Add new doctors with name, age, gender, and specialty
+- Auto-generated unique doctor IDs
+- View doctor profiles and availability schedules
+- List all registered doctors
+
+###  Appointment Scheduling
+- Book appointments between patients and doctors
+- Conflict detection to prevent double-booking
+- Cancel or view scheduled appointments
+- Appointment status tracking (Scheduled, Confirmed, Cancelled)
+
+###  Billing System
+- Generate bills for appointments with consultation fees (JMD$ 3000)
+- Add additional services with custom fees
+- Well-formatted receipts with hospital branding
+- Total amount calculation and display
+
+## Technical Requirements Met
+
+### ✅ Object-Oriented Programming
+- **Person Class**: Base class with name, age, gender attributes and validation methods
+- **Patient Class**: Inherits from Person, adds patient_id and appointment management
+- **Doctor Class**: Inherits from Person, adds doctor_id, specialty, and schedule management
+- **Appointment Class**: Manages patient-doctor appointments with status tracking
+- **Bill Class**: Handles billing and receipt generation
+- **HospitalSystem Class**: Main system class managing all operations
+
+### ✅ Inheritance
+- Patient and Doctor classes inherit from Person class
+- Proper use of `super()` calls and method overriding
+
+### ✅ Exception Handling
+- Comprehensive try-catch blocks throughout the application
+- Input validation for age, fees, and other critical data
+- Graceful error handling for missing records and invalid operations
+
+### ✅ Modular Code Design
+- Separate functions for each menu system
+- Reusable utility functions for ID generation and validation
+- Clean separation of concerns between classes
+
+### ✅ Formatted Console Output
+- Professional table formatting for patient and doctor lists
+- Detailed receipt generation with proper formatting
+- Clear menu navigation and user feedback
+
+## Class Structure
+
+```
+Person (Base Class)
+├── name, age, gender
+├── validate(), display()(__str__)
+
+Patient (Inherits from Person)
+├── patient_id, appointment_list
+├── book_appointment(), view_profile()(Calls Super __str__ )
+
+Doctor (Inherits from Person)
+├── doctor_id, specialty, schedule
+├── is_available(), view_schedule(Calls Super __str__ )
+
+Appointment
+├── appointment_id, patient, doctor, date, time, status
+├── confirm(), cancel(), display()
+
+Bill
+├── appointment, consultation_fee, additional_services, total_amount
+├── add_service(), generate_receipt()
+
+HospitalSystem
+├── patients, doctors, appointments, bills (collections)
+├── add_patient(), add_doctor(), book_appointment(), etc.
+```
+
+## How to Run
+
+1. **Prerequisites**: Python 3.6 or higher
+2. **Run the application**:
+   ```
+   python main.py
+   ```
+
+## Usage Guide
+
+### Main Menu Options:
+1. **Patient Management** - Register and manage patients
+2. **Doctor Management** - Add and manage doctors
+3. **Appointment Management** - Schedule and manage appointments
+4. **Billing System** - Generate bills and receipts
+5. **View Records** - List all patients, doctors, and appointments
+6. **Exit** - Close the application
+
+### Sample Workflow:
+1. **Add Patients**: Register patients with their details
+2. **Add Doctors**: Add doctors with specialties
+3. **Book Appointments**: Schedule appointments between patients and doctors
+4. **Generate Bills**: Create bills for completed appointments
+5. **Add Services**: Include additional services to bills
+6. **View Receipts**: Display formatted receipts
+
+## Sample Data
+
+The system comes pre-loaded with sample data:
+- **Patients**: John Smith, Mary Johnson, Robert Davis
+- **Doctors**: Dr. Sarah Wilson (Cardiology), Dr. Michael Brown (Pediatrics), Dr. Lisa Garcia (Neurology)
+
+## Features Demonstrated
+
+### Technical Implementation
+- **Type Hints**: Full type annotation throughout the codebase
+- **Error Handling**: Comprehensive exception handling with user-friendly messages
+- **Data Validation**: Input validation for all user inputs
+- **ID Generation**: Unique ID generation for patients, doctors, and appointments
+- **Schedule Management**: Doctor availability checking and conflict detection
+
+### User Experience
+- **Menu-Driven Interface**: Intuitive navigation through nested menus
+- **Clear Feedback**: Success and error messages for all operations
+- **Formatted Output**: Professional-looking tables and receipts
+- **Data Persistence**: In-memory data management during session
+
+### Business Logic
+- **Appointment Scheduling**: Prevents double-booking of doctors
+- **Billing System**: Automatic consultation fees plus additional services
+- **Status Tracking**: Appointment status management
+- **Receipt Generation**: Professional hospital receipts with branding
+
+## Error Handling Examples
+
+The system handles various error scenarios:
+- Invalid age inputs (non-numeric or out of range)
+- Missing patient/doctor records
+- Scheduling conflicts
+- Invalid fee amounts
+- Empty or invalid input data
+
+## Receipt Format
+
+The system generates professional receipts including:
+- Hospital branding (Jamaica Hospital Center)
+- Patient and doctor information
+- Appointment details
+- Itemized services and fees
+- Total amount calculation
+- Timestamp and receipt formatting
